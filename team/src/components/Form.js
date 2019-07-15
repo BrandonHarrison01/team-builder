@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 
-function Form() {
+function Form(props) {
 
-    const [teamMembers, setTeamMember] = useState({ name: '', email: '', role: ''})
+    const [newMember, setNewMember] = useState({ name: '', email: '', role: '' })
 
     const handleChange = event => {
-        setTeamMember({...teamMembers, [event.target.name]: event.target.value});
+        setNewMember({...newMember, [event.target.name]: event.target.value});
     }
-
+  
     const handleSubmit = event => {
         event.preventDefault()
-        console.log(teamMembers)
-        setTeamMember({ name: '', email: '', role: ''})
+        console.log(newMember)
+        props.inputMember(newMember)
+        setNewMember({ name: '', email: '', role: ''})
     }
 
     return(
@@ -21,7 +22,7 @@ function Form() {
                 <input 
                     type='text'
                     name='name'
-                    value={teamMembers.name}
+                    value={newMember.name}
                     onChange={event => handleChange(event)}
                 />
             </label>
@@ -30,7 +31,7 @@ function Form() {
                 <input 
                     type='text'
                     name='email'
-                    value={teamMembers.email}
+                    value={newMember.email}
                     onChange={event => handleChange(event)}
                 />
             </label>
@@ -39,7 +40,7 @@ function Form() {
                 <input 
                     type='text'
                     name='role'
-                    value={teamMembers.role}
+                    value={newMember.role}
                     onChange={event => handleChange(event)}
                 />
             </label>
