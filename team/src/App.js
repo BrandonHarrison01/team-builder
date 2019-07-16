@@ -13,16 +13,18 @@ function App() {
     setTeamMember([...teamMembers, newMember])
   }
 
-  const editMember = edit => {
-    setTeamMember()
-  }
+
 
   return (
     <div className="App">
       <h1>Team Builder</h1>
-      {teamMembers.map(member => {
-        return <TeamMembers member={member} editMember={editMember} />
-      })}
+      <div>
+            {teamMembers.map(member => {
+              return (
+                <TeamMembers member={member} />
+              )
+            })}
+        </div>
       <Form inputMember={inputMember} />
     </div>
   );

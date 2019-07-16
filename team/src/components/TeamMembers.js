@@ -1,45 +1,21 @@
 import React, { useState } from 'react'
 
+import EditForm from './EditForm'
+
 function TeamMembers(props) {
 
-    const [editMember, setEditMember] = useState({ name: `${props.member.name}`, email: `${props.member.email}`, role: `${props.member.role}`, })
+    const [member, setMember] = useState(props.member)
+
+    const editMember = edit => {
+        setMember(edit)
+    }
 
     return(
-        <div key={props.member.name}>
-            <p>Name: {props.member.name}</p>
-            <p>Email: {props.member.email}</p>
-            <p>Role: {props.member.role}</p>
-            <h2>edit member:</h2>
-            <form>
-                <label>
-                    Name:
-                    <input 
-                        type='text'
-                        name='name'
-                        value={editMember.name}
-                        // onChange={event => handleChange(event)}
-                        />
-                </label>
-                <label>
-                    email:
-                    <input 
-                        type='text'
-                        name='email'
-                        value={editMember.email}
-                        // onChange={event => handleChange(event)}
-                        />
-                </label>
-                <label>
-                    Role:
-                    <input 
-                        type='text'
-                        name='role'
-                        value={editMember.role}
-                        // onChange={event => handleChange(event)}
-                        />
-                </label>
-                <button>Submit!</button>
-            </form>
+        <div key={member.name}>
+            <p>Name: {member.name}</p>
+            <p>Email: {member.email}</p>
+            <p>Role: {member.role}</p>
+            <EditForm member={member} editMember={editMember}/>
         </div>
     )
 }
