@@ -10,13 +10,19 @@ function App() {
   const [teamMembers, setTeamMember] = useState(team)
 
   const inputMember = newMember => {
-    setTeamMember({...teamMembers, newMember})
+    setTeamMember([...teamMembers, newMember])
+  }
+
+  const editMember = edit => {
+    setTeamMember()
   }
 
   return (
     <div className="App">
       <h1>Team Builder</h1>
-      <TeamMembers teamMembers={teamMembers} />
+      {teamMembers.map(member => {
+        return <TeamMembers member={member} editMember={editMember} />
+      })}
       <Form inputMember={inputMember} />
     </div>
   );

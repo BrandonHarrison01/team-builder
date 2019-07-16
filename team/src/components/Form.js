@@ -16,36 +16,39 @@ function Form(props) {
     }
 
     return(
-        <form onSubmit={event => handleSubmit(event)}>
-            <label>
-                Name:
-                <input 
-                    type='text'
-                    name='name'
-                    value={newMember.name}
-                    onChange={event => handleChange(event)}
-                />
-            </label>
-            <label>
-                email:
-                <input 
-                    type='text'
-                    name='email'
-                    value={newMember.email}
-                    onChange={event => handleChange(event)}
-                />
-            </label>
-            <label>
-                Role:
-                <input 
-                    type='text'
-                    name='role'
-                    value={newMember.role}
-                    onChange={event => handleChange(event)}
-                />
-            </label>
-            <button>Submit!</button>
-        </form>
+        <div>
+            <h2>new member:</h2>
+            <form onSubmit={event => handleSubmit(event)}>
+                <label>
+                    Name:
+                    <input 
+                        type='text'
+                        name='name'
+                        value={newMember.name}
+                        onChange={event => handleChange(event)}
+                    />
+                </label>
+                <label>
+                    email:
+                    <input 
+                        type='text'
+                        name='email'
+                        value={newMember.email}
+                        onChange={event => handleChange(event)}
+                    />
+                </label>
+                <label>
+                    Role:
+                    <input 
+                        type='text'
+                        name='role'
+                        value={newMember.role}
+                        onChange={event => handleChange(event)}
+                    />
+                </label>
+                <button>Submit!</button>
+            </form>
+        </div>
     )
 }
 
