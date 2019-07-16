@@ -15,7 +15,7 @@ function EditForm(props) {
     }
 
     return(
-        <div>
+        <div className={props.openEdit === false ? 'none' : ''}>
             <h2>edit member:</h2>
             <form onSubmit={event => handleSubmit(event)}>
                 <label>
